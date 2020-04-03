@@ -43,7 +43,10 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: '../../packages/pagination/src/elements/[A-Z]*.{ts,tsx}'
+      components: [
+        '../../packages/pagination/src/elements/OffsetPagination/[A-Z]*.{ts,tsx}',
+        '../../packages/pagination/src/elements/CursorPagination/[A-Z]*.{ts,tsx}'
+      ]
     }
   ]
 };

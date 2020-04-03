@@ -8,12 +8,12 @@
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { default as Pagination, IPaginationProps, PAGE_TYPE } from './Pagination';
+import { default as OffsetPagination, IOffsetPaginationProps, PAGE_TYPE } from './OffsetPagination';
 
-describe('Pagination', () => {
+describe('OffsetPagination', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLUListElement>();
-    const { container } = render(<Pagination totalPages={0} currentPage={0} ref={ref} />);
+    const { container } = render(<OffsetPagination totalPages={0} currentPage={0} ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });
@@ -24,8 +24,13 @@ describe('Pagination', () => {
     currentPage = 1,
     totalPages = 5,
     ...other
-  }: Partial<IPaginationProps> = {}) => (
-    <Pagination totalPages={totalPages} currentPage={currentPage} onChange={onChange} {...other} />
+  }: Partial<IOffsetPaginationProps> = {}) => (
+    <OffsetPagination
+      totalPages={totalPages}
+      currentPage={currentPage}
+      onChange={onChange}
+      {...other}
+    />
   );
 
   beforeEach(() => {
@@ -98,7 +103,7 @@ describe('Pagination', () => {
     });
 
     it('focuses first page when visibility is lost', () => {
-      const { container } = render(<Pagination totalPages={5} currentPage={2} />);
+      const { container } = render(<OffsetPagination totalPages={5} currentPage={2} />);
       const previousPage = container.firstElementChild!.children[0];
 
       fireEvent.focus(previousPage);
@@ -138,7 +143,7 @@ describe('Pagination', () => {
 
     it('focuses last page when visibility is lost', () => {
       const { container } = render(
-        <Pagination totalPages={5} currentPage={4} onChange={onChange} />
+        <OffsetPagination totalPages={5} currentPage={4} onChange={onChange} />
       );
       const paginationWrapper = container.firstElementChild!;
       const nextPage = paginationWrapper.children[paginationWrapper.children.length - 1];

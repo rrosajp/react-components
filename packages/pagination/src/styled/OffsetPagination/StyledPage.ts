@@ -91,7 +91,7 @@ export const StyledPage = styled.li.attrs({
   visibility: ${props => props.hidden && 'hidden'};
   margin-left: ${props => `${props.theme.space.base}px`};
   border-radius: ${props => props.theme.borderRadii.md};
-  cursor: pointer;
+  cursor: ${props => !(props as any).disabled && 'pointer'};
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -111,7 +111,7 @@ export const StyledPage = styled.li.attrs({
     font-weight: ${props => props.theme.fontWeights.semibold};
   }
 
-  ${props => colorStyles(props)};
+  ${props => !(props as any).disabled && colorStyles(props)};
 
   &${props => (props.theme.rtl ? ':last-of-type' : ':first-of-type')} {
     margin-left: 0;

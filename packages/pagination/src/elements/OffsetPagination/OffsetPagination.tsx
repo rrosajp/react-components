@@ -14,14 +14,14 @@ import { withTheme } from '@zendeskgarden/react-theming';
 import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 
-import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../styled';
+import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../../styled';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
 
 export type PAGE_TYPE = 'next' | 'page' | 'gap' | 'previous';
 
-export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
+export interface IOffsetPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
   /**
    * The currently selected page
    */
@@ -55,9 +55,12 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
 }
 
 /**
- * High-abstraction element for the `Pagination` pattern
+ * High-abstraction element for the `OffsetPagination` pattern
  */
-const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemeProps<DefaultTheme>>(
+const OffsetPagination = React.forwardRef<
+  HTMLUListElement,
+  IOffsetPaginationProps & ThemeProps<DefaultTheme>
+>(
   (
     {
       currentPage: controlledCurrentPage,
@@ -277,7 +280,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
   }
 );
 
-Pagination.propTypes = {
+OffsetPagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   pagePadding: PropTypes.number,
@@ -286,11 +289,11 @@ Pagination.propTypes = {
   transformPageProps: PropTypes.func
 };
 
-Pagination.defaultProps = {
+OffsetPagination.defaultProps = {
   pagePadding: 2,
   pageGap: 2
 };
 
-export default withTheme(Pagination) as React.FC<
-  IPaginationProps & React.RefAttributes<HTMLUListElement>
+export default withTheme(OffsetPagination) as React.FC<
+  IOffsetPaginationProps & React.RefAttributes<HTMLUListElement>
 >;

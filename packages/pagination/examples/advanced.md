@@ -1,3 +1,5 @@
+### Offset Pagination
+
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { MD, Code, UnorderedList } = require('@zendeskgarden/react-typography/src');
@@ -49,8 +51,8 @@ const transformPageProps = (pageType, props) => {
       </Well>
     </Col>
     <Col alignSelf="center">
-      <nav aria-label="Advanced pagination">
-        <Pagination
+      <nav aria-label="Advanced offset pagination">
+        <OffsetPagination
           totalPages={11}
           currentPage={state.currentPage}
           onChange={currentPage => setState({ currentPage })}
