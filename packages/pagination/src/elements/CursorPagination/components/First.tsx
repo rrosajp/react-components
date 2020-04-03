@@ -23,7 +23,7 @@ export const First = React.forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButt
         <StyledIcon type="first">
           <ChevronDoubleLeft />
         </StyledIcon>
-        {children}
+        <span>{children}</span>
       </StyledCursor>
     );
   }

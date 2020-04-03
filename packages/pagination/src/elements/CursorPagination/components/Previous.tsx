@@ -23,7 +23,7 @@ export const Previous = React.forwardRef<HTMLButtonElement, HTMLAttributes<HTMLB
         <StyledIcon type="previous">
           <ChevronLeftIcon />
         </StyledIcon>
-        {children}
+        <span>{children}</span>
       </StyledCursor>
     );
   }

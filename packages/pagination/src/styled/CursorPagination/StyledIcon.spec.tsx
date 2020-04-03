@@ -42,11 +42,9 @@ describe('StyledIcon', () => {
       );
 
       if (type === 'first' || type === 'previous') {
-        expect(container.firstChild).toHaveStyleRule('margin-right', '8px');
-        expect(container.firstChild).not.toHaveStyleRule('margin-left');
+        expect(container.firstChild).not.toHaveStyleRule('margin-left', '2px');
       } else {
-        expect(container.firstChild).toHaveStyleRule('margin-left', '8px');
-        expect(container.firstChild).not.toHaveStyleRule('margin-right');
+        expect(container.firstChild).not.toHaveStyleRule('margin-right', '2px');
       }
     });
   });
@@ -62,11 +60,9 @@ describe('StyledIcon', () => {
       );
 
       if (type === 'first' || type === 'previous') {
-        expect(container.firstChild).toHaveStyleRule('margin-left', '8px');
-        expect(container.firstChild).not.toHaveStyleRule('margin-right');
+        expect(container.firstChild).toHaveStyleRule('margin', '0 2px');
       } else {
-        expect(container.firstChild).toHaveStyleRule('margin-right', '8px');
-        expect(container.firstChild).not.toHaveStyleRule('margin-left');
+        expect(container.firstChild).toHaveStyleRule('margin', '0 2px');
       }
     });
   });

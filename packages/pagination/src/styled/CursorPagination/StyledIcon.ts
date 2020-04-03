@@ -6,35 +6,18 @@
  */
 
 import { cloneElement, Children } from 'react';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export interface IStyledIcon {
   type: 'first' | 'next' | 'previous' | 'last';
 }
 
-const marginStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
-  const { type, theme } = props;
-  const margin = theme.space.base * 2;
-
-  if (theme.rtl) {
-    return css`
-      /* stylelint-disable-next-line property-no-unknown */
-      margin-${type === 'last' || type === 'next' ? 'right' : 'left'}: ${margin}px;
-    `;
-  }
-
-  return css`
-    /* stylelint-disable-next-line property-no-unknown */
-    margin-${type === 'first' || type === 'previous' ? 'right' : 'left'}: ${margin}px;
-  `;
-};
-
 export const StyledIcon = styled(({ children, ...props }) =>
   cloneElement(Children.only(children), props)
 )`
-  ${marginStyles}
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
+  margin: 0 ${props => props.theme.space.base * 0.5}px;
 `;
 
 StyledIcon.defaultProps = {

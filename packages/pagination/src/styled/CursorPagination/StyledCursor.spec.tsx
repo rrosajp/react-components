@@ -13,8 +13,6 @@ describe('StyledCursor', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledCursor />);
 
-    // Override margin-left from StyledPage
-    expect(container.firstChild).toHaveStyleRule('margin-left', '0px !important');
     expect(container.firstChild).toHaveStyleRule('margin-right', '4px', {
       modifier: '&:not(:last-of-type)'
     });
@@ -23,7 +21,6 @@ describe('StyledCursor', () => {
   it('renders RTL styling correctly', () => {
     const { container } = renderRtl(<StyledCursor />);
 
-    expect(container.firstChild).toHaveStyleRule('margin-left', '4px');
     expect(container.firstChild).toHaveStyleRule('margin-right', '4px', {
       modifier: '&:not(:last-of-type)'
     });

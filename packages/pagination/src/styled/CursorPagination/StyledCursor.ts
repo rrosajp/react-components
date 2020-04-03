@@ -23,12 +23,13 @@ export const StyledCursor = styled(StyledPage).attrs({
   align-items: center;
   border: none; /* [1] */
   background: transparent; /* [1] */
-  padding: ${props => `0px ${props.theme.space.base * 2}px`};
   min-width: unset; /* [2] */
   max-width: none; /* [2] */
   overflow: visible;
-  /* stylelint-disable-next-line */
-  margin-${props => (props.theme.rtl ? 'right' : 'left')}: 0px !important; /* [2] */
+
+  & > * {
+    margin: 0 ${props => props.theme.space.base * 0.5}px;
+  }
 
   &:not(:last-of-type) {
     margin-right: ${props => props.theme.space.base}px;

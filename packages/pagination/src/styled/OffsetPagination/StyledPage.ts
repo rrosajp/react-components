@@ -17,6 +17,7 @@ import {
 const COMPONENT_ID = 'pagination.page';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const defaultColor = getColor('neutralHue', 600, props.theme);
   const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
   const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
   const boxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
@@ -28,6 +29,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const currentActiveBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
 
   return css`
+    color: ${defaultColor};
+
     &:hover {
       background-color: ${hoverBackgroundColor};
       color: ${hoverForegroundColor};

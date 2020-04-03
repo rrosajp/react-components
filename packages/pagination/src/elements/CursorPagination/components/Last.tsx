@@ -20,7 +20,7 @@ export const Last = React.forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButto
   ({ children, ...restProps }, ref) => {
     return (
       <StyledCursor ref={ref} as="button" {...restProps}>
-        {children}
+        <span>{children}</span>
         <StyledIcon type="last">
           <ChevronDoubleRight />
         </StyledIcon>
