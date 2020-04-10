@@ -7,6 +7,12 @@ The Accordion component is implemented using the [W3C Accordion pattern](https:/
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field, Label, Range } = require('@zendeskgarden/react-forms/src');
+const { Button } = require('@zendeskgarden/react-buttons/src');
+const { IconButton } = require('@zendeskgarden/react-buttons/src');
+const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
+const FolderIcon = require('@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg').default;
+const PlusIcon = require('@zendeskgarden/svg-icons/src/16/plus-circle-stroke.svg').default;
+const { Dropdown, Menu, Item, Trigger } = require('@zendeskgarden/react-dropdowns/src');
 
 const UncontrolledExample = () => {
   const [isCollapsible, setIsCollapsible] = React.useState(false);
@@ -35,16 +41,7 @@ const UncontrolledExample = () => {
           <Accordion level={3} isCollapsible={isCollapsible} isExpandable={isExpandable}>
             <Accordion.Section>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Accordion.Header label="Turnip greens yarrow">
-                  <button
-                    onClick={e => {
-                      e.preventDefault();
-                      console.log('nooo');
-                    }}
-                  >
-                    Menu button
-                  </button>
-                </Accordion.Header>
+                <Accordion.Header label="Turnip greens yarrow" />
               </div>
               <Accordion.Panel>
                 <div>
@@ -60,7 +57,29 @@ const UncontrolledExample = () => {
               </Accordion.Panel>
             </Accordion.Section>
             <Accordion.Section>
-              <Accordion.Header label="Corn amaranth salsify" />
+              <Accordion.Header
+                hasChevron={false}
+                label="Corn amaranth salsify"
+                // style={{ background: '#edf7ff' }}
+              >
+                <div
+                  class="menu-button-container"
+                  style={{ width: '112px', justifyContent: 'center', display: 'flex' }}
+                >
+                  <Dropdown onSelect={item => alert(item)}>
+                    <Trigger>
+                      <IconButton aria-label="Settings" title="Settings">
+                        <SettingsIcon />
+                      </IconButton>
+                    </Trigger>
+                    <Menu placement="end" hasArrow>
+                      <Item value="option-1">Option 1</Item>
+                      <Item value="option-2">Option 2</Item>
+                      <Item value="option-3">Option 3</Item>
+                    </Menu>
+                  </Dropdown>
+                </div>
+              </Accordion.Header>
               <Accordion.Panel>
                 <div>
                   Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper
@@ -75,7 +94,60 @@ const UncontrolledExample = () => {
               </Accordion.Panel>
             </Accordion.Section>
             <Accordion.Section>
-              <Accordion.Header label="Celery quandong swiss" />
+              <Accordion.Header
+                hasChevron={false}
+                label="Celery quandong swiss"
+                // style={{ background: '#edf7ff' }}
+              >
+                <div
+                  class="menu-button-container"
+                  style={{
+                    width: '210px',
+                    justifyContent: 'space-around',
+                    display: 'flex',
+                    padding: '0 22px'
+                  }}
+                >
+                  <Dropdown onSelect={item => alert(item)}>
+                    <Trigger>
+                      <IconButton aria-label="Settings" title="Settings">
+                        <SettingsIcon />
+                      </IconButton>
+                    </Trigger>
+                    <Menu placement="top" hasArrow>
+                      <Item value="option-1">Option 1</Item>
+                      <Item value="option-2">Option 2</Item>
+                      <Item value="option-3">Option 3</Item>
+                    </Menu>
+                  </Dropdown>
+
+                  <Dropdown onSelect={item => alert(item)}>
+                    <Trigger>
+                      <IconButton aria-label="Settings" title="Settings">
+                        <FolderIcon />
+                      </IconButton>
+                    </Trigger>
+                    <Menu placement="top" hasArrow>
+                      <Item value="option-1">Option 1</Item>
+                      <Item value="option-2">Option 2</Item>
+                      <Item value="option-3">Option 3</Item>
+                    </Menu>
+                  </Dropdown>
+
+                  <Dropdown onSelect={item => alert(item)}>
+                    <Trigger>
+                      <IconButton aria-label="Settings" title="Settings">
+                        <PlusIcon />
+                      </IconButton>
+                    </Trigger>
+                    <Menu placement="top" hasArrow>
+                      <Item value="option-1">Option 1</Item>
+                      <Item value="option-2">Option 2</Item>
+                      <Item value="option-3">Option 3</Item>
+                    </Menu>
+                  </Dropdown>
+                </div>
+              </Accordion.Header>
               <Accordion.Panel>
                 <div>
                   Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear

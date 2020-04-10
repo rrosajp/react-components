@@ -6,13 +6,14 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.header';
 
 export interface IStyledHeader {
   label?: string;
   isExpanded?: boolean;
+  isFocused?: boolean;
 }
 
 export const StyledHeader = styled.div.attrs<IStyledHeader>({
@@ -22,9 +23,11 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
   font-size: 14px;
   width: 100%;
   display: flex;
-  border: ${props => (props.isExpanded ? '1px solid green' : '1px solid #DDD')};
+  align-items: center;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  box-shadow: ${props =>
+      props.isFocused && `inset 0 0 0 3px ${getColor('blue', 600, props.theme, 0.35)}`}
+    ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledHeader.defaultProps = {

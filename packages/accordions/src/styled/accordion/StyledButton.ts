@@ -23,9 +23,8 @@ export const StyledButton = styled.button.attrs<IStyledButton>({
   text-align: left;
   font-size: 14px;
   font-weight: 600;
-  border: 1px solid transparent;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  background: transparent;
+  border: none;
   display: flex;
   justify-content: space-between;
   outline: none;
