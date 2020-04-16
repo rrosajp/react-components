@@ -13,3 +13,10 @@ export * from './stepper/StyledStepper';
 export * from './stepper/StyledIcon';
 export * from './stepper/StyledLabel';
 export * from './stepper/StyledLabelText';
+
+export * from './accordion/StyledAccordion';
+export * from './accordion/StyledSection';
+export * from './accordion/StyledHeader';
+export * from './accordion/StyledButton';
+export * from './accordion/StyledPanel';
+export * from './accordion/StyledRotateIcon';
